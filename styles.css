@@ -1,7 +1,8 @@
 :root {
     --primary-color: white;
-    --secondary-color: #8644dc;
-    --background-color: #271e3f;
+    --secondary-color: #0e2d4b;
+    --accent-color: #a4d1ff;
+    --background-color: #060527;
     --font-family: 'Arial, sans-serif';
 }
 
@@ -14,9 +15,17 @@
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin: 10px;
     padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    border: var(--accent-color) 1px solid;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 h1 {
@@ -26,8 +35,22 @@ h1 {
 header p {
     display: inline-block;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     padding: auto;
+}
+input {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    width: 10%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+input::placeholder {
+    color: var(--accent-color);
+    font-style: italic;
 }
 
 h2 {
