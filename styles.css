@@ -1,0 +1,35 @@
+:root {
+    --primary-color: white;
+    --secondary-color: #8644dc;
+    --background-color: #271e3f;
+    --font-family: 'Arial, sans-serif';
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 10px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+header p {
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    padding: auto;
+}
+
+h2 {
+    margin-top: 20px;
+}
