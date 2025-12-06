@@ -5,11 +5,13 @@ const expense = document.getElementById('expense-name');
 const amount = document.getElementById('expense-amount');
 const expenseList = document.getElementById('expense-list');
 
+
 function setBudget() {
     const userBudget = prompt("Enter your monthly budget:");
     if (userBudget !== null && userBudget.trim() !== '' && !isNaN(userBudget)) {
         budget.textContent = "Monthly Budget: $" + parseFloat(userBudget).toFixed(2);
-        remainingBudget.textContent = "Remaining Budget: $" + parseFloat(userBudget).toFixed(2);
+        remainingBudget.textContent = "Remaining Budget: $" + parseFloat(userBudget).toFixed(2); // Initialize remaining budget
+        localStorage.setItem('monthlyBudget', parseFloat(userBudget).toFixed(2)); // Store budget in local storage
     } else {
         alert("Please enter a valid number for the budget.");
         setBudget();
@@ -30,8 +32,14 @@ function addExpense() {
     expenseItem.textContent = expenseName + ": $" + expenseAmount; // set the text content
     expenseItem.classList.add("expense") // add a class for styling
 
+
     expenseItem.addEventListener("click", function() {
         expenseList.removeChild(expenseItem); // remove the item when clicked
+
+        // Update remaining budget when an expense is removed
+        const currentRemaining = parseFloat(remainingBudget.textContent.split('$')[1]);
+        const newRemaining = currentRemaining + parseFloat(expenseAmount);
+        remainingBudget.textContent = "Remaining Budget: $" + newRemaining.toFixed(2);
     })
 
     expenseList.appendChild(expenseItem); // add the item to the list
@@ -43,5 +51,10 @@ function addExpense() {
     const newRemaining = currentRemaining - expenseAmount;
     remainingBudget.textContent = "Remaining Budget: $" + newRemaining.toFixed(2);
 }
+if (localStorage.getItem('monthlyBudget') === null || localStorage .getItem('monthlyBudget') === undefined) {
 setBudget();
-
+} else {
+    const storedBudget = localStorage.getItem('monthlyBudget');
+    budget.textContent = "Monthly Budget: $" + parseFloat(storedBudget).toFixed(2);
+    remainingBudget.textContent = "Remaining Budget: $" + parseFloat(storedBudget).toFixed(2);
+}
