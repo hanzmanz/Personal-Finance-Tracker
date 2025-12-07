@@ -16,6 +16,7 @@
 ##### [] Expenses by category pie chart (how to deal with over-budget i.e. expenses > 100%?)
 ##### [] Rate of expenditure line chart
 ##### [] what is local storage?
-##### [] add an edit and delete button to each expense item
+##### [X] add an edit and delete button to each expense item
+##### [] code edit and delete button functionalities
 ##### [] API integration - FX?
 ##### [] check if expense item already exists when clicking 'Add Expense'
